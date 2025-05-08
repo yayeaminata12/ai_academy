@@ -1,0 +1,47 @@
+/* 📁 src/components/CourseList.css */
+.course-list {
+    margin: 2rem 0;
+  }
+  
+  .courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .course-card {
+    background-color: #080808;
+    padding: 1.5rem;
+    border-radius: 8px;
+    flex: 1 1 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .course-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .course-details .price {
+    font-weight: bold;
+    color: #3498db;
+  }
+  
+  .course-details .level {
+    background-color: #2f4966;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .course-card .btn {
+    margin-top: 1rem;
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  

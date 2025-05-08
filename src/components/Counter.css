@@ -1,0 +1,12 @@
+/* src/components/Counter.css */
+h1 {
+    color: white;
+    font-size: 26px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

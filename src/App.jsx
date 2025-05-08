@@ -1,58 +1,61 @@
-import React, { useState } from 'react';
+// 📁 src/App.js
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CourseCard from './components/CourseCard';
-import NavBar from './components/NavBar';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import CoursesPage from './pages/CoursesPage';
+import ContactPage from './pages/ContactPage';
+import NotFoundPage from './pages/NotFoundPage';
+import CourseDetailPage from './pages/CourseDetailPage';
+import MemberLayout from './pages/MemberArea/MemberLayout';
+import Dashboard from './pages/MemberArea/Dashboard';
+import Profile from './pages/MemberArea/Profile';
+import MyCourses from './pages/MemberArea/MyCourses';
+import Settings from './pages/MemberArea/Settings';
+
+// Import des styles
+import './components/Header.css';
+import './components/CourseList.css';
+import './components/Counter.css';
+import './pages/AboutPage.css';
+import './pages/CoursesPage.css';
+import './pages/ContactPage.css';
+import './pages/NotFoundPage.css';
+import './pages/CourseDetailPage.css';
+import './pages/MemberArea/MemberArea.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const courses = [
-    { title: 'Intro à l’IA', description: 'Les bases de l’intelligence artificielle.', level: 'Débutant' },
-    { title: 'Machine Learning', description: 'Apprenez les algorithmes de base.', level: 'Intermédiaire' },
-    { title: 'Deep Learning', description: 'Réseaux de neurones et plus.', level: 'Avancé' },
+  const coursesData = [
+    { id: 1, title: "Introduction à l'IA", description: "Découvrez les fondamentaux de l'intelligence artificielle.", price: 199, level: "Débutant" },
+    { id: 2, title: "Machine Learning Fondamental", description: "Apprenez les principes du machine learning.", price: 299, level: "Intermédiaire" },
+    { id: 3, title: "Deep Learning Avancé", description: "Maîtrisez les réseaux de neurones profonds.", price: 399, level: "Avancé" },
+    { id: 4, title: "IA et Éthique", description: "Explorez les implications éthiques de l'IA.", price: 249, level: "Tous niveaux" }
   ];
 
   return (
-    <div className="app">
-      <NavBar />
-      <Header />
-      <main className="content">
-        <h2 id="home">Bienvenue sur AI Academy</h2>
-        <p>
-          Notre mission est de rendre l'apprentissage de l'intelligence artificielle accessible à tous.
-        </p>
-
-        <h3 id="courses">Nos cours</h3>
-        {courses.map((course, index) => (
-          <CourseCard key={index} {...course} />
-        ))}
-
-        <div className="card">
-          <button onClick={() => setCount(count + 1)}>
-            Vous avez cliqué {count} fois
-          </button>
-          <p>
-            Ce compteur illustre la gestion d'état avec le hook useState.
-          </p>
-        </div>
-
-        <div style={{ marginTop: '2rem' }}>
-          <input 
-            type="text" 
-            placeholder="Tapez votre nom" 
-            onChange={(e) => console.log("Nom :", e.target.value)} 
-            style={{ padding: '0.5rem', width: '300px' }}
-          />
-          <br /><br />
-          <button onDoubleClick={() => alert("Double clic détecté !")}>
-            Double-cliquez ici
-          </button>
-        </div>
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage courses={coursesData} />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/courses" element={<CoursesPage courses={coursesData} />} />
+          <Route path="/courses/:id" element={<CourseDetailPage courses={coursesData} />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/member" element={<MemberLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="courses" element={<MyCourses />} />
+            <Route path="settings" element={<Settings />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
