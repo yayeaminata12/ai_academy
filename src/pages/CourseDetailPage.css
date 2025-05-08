@@ -27,7 +27,7 @@
    .course-meta .level, 
    .course-meta .price { 
     font-size: 1.2rem; 
-    background-color: #f8f9fa; 
+    background-color: #313334; 
     padding: 0.5rem 1rem; 
     border-radius: 5px; 
    } 
@@ -52,14 +52,14 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  gap: 20px; 
    } 
    .module { 
-    background-color: #f8f9fa; 
+    background-color: #0b0c0c; 
     padding: 1.5rem; 
     border-radius: 5px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
    } 
    .module h3 { 
     margin-top: 0; 
-    color: #2c3e50; 
+    color: #1c63a9; 
     margin-bottom: 1rem; 
    } 
    .module ul { 
@@ -70,7 +70,7 @@
    } 
    .enroll-section { 
     text-align: center; 
-    background-color: #f8f9fa; 
+    background-color: #131314; 
     padding: 2rem; 
     border-radius: 5px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
