@@ -15,6 +15,7 @@ import Dashboard from './pages/MemberArea/Dashboard';
 import Profile from './pages/MemberArea/Profile';
 import MyCourses from './pages/MemberArea/MyCourses';
 import Settings from './pages/MemberArea/Settings';
+import SearchPage from "./pages/SearchPage";
 
 // Import des styles
 import './components/Header.css';
@@ -45,6 +46,7 @@ function App() {
           <Route path="/courses" element={<CoursesPage courses={coursesData} />} />
           <Route path="/courses/:id" element={<CourseDetailPage courses={coursesData} />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/search" element={<SearchPage courses={coursesData} />} />
           <Route path="/member" element={<MemberLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="profile" element={<Profile />} />

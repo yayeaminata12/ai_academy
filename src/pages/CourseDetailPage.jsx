@@ -21,12 +21,29 @@ const CourseDetailPage = ({ courses }) => {
  const goBack = () => { 
  navigate('/courses'); 
  }; 
+
+ // Fonction pour partager le lien du cours
+ const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    alert("Lien du cours copié !");
+  };
+
+ // Mettre à jour le titre de la page
+ useEffect(() => {
+    if (course) {
+      const stored = JSON.parse(localStorage.getItem("recentCourses")) || [];
+      const updated = [course.id, ...stored.filter(id => id !== course.id)].slice(0, 3);
+      localStorage.setItem("recentCourses", JSON.stringify(updated));
+    }
+  }, [course]);
+
   
  return ( 
  <main className="main-content"> 
  <div className="course-detail"> 
- <button className="back-button" onClick={goBack}>  &larr; Retour aux cours 
- </button> 
+ <button className="back-button" onClick={goBack}>  &larr; Retour aux cours </button> 
+ <button className="btn" onClick={handleShare}>Partager ce cours</button>
+ 
   
  <div className="course-header"> 
  <h1>{course.title}</h1> 

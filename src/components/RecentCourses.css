@@ -1,0 +1,30 @@
+.recent-courses {
+    background-color: #252728;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+  
+  .recent-courses h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+  
+  .recent-courses ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .recent-courses li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .recent-courses a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  .recent-courses a:hover {
+    text-decoration: underline;
+  }
+  
