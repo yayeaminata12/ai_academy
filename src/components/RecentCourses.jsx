@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './RecentCourses.css';
 
-
 const RecentCourses = ({ courses }) => {
   const storedIds = JSON.parse(localStorage.getItem("recentCourses")) || [];
   const recent = courses.filter(c => storedIds.includes(c.id));
@@ -14,7 +13,9 @@ const RecentCourses = ({ courses }) => {
       <h2>Cours récemment consultés</h2>
       <ul>
         {recent.map(c => (
-          <li key={c.id}><Link to={`/courses/${c.id}`}>{c.title}</Link></li>
+          <li key={c.id}>
+            <Link to={`/courses/${c.id}`}>{c.title}</Link> — <em>{c.level}</em>
+          </li>
         ))}
       </ul>
     </section>

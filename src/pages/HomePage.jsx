@@ -1,10 +1,8 @@
-// 📁 src/pages/HomePage.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CourseList from '../components/CourseList';
 import Counter from '../components/Counter';
-import RecentCourses from "../components/RecentCourses";
-
+import RecentCourses from '../components/RecentCourses';
 
 const HomePage = ({ courses }) => {
   const navigate = useNavigate();
@@ -38,7 +36,6 @@ const HomePage = ({ courses }) => {
 
       <CourseList courses={courses} />
       <RecentCourses courses={courses} />
-
 
       <div className="demo-section">
         <h2>Démonstration des concepts React</h2>

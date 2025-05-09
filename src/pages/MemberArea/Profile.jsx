@@ -10,12 +10,12 @@ const Profile = () => {
  <div className="profile-details"> 
  <div className="profile-group"> 
  <label>Nom complet</label> 
- <p>Jean Dupont</p> 
+ <p>Lola Poulie</p> 
  </div> 
   
  <div className="profile-group"> 
  <label>Email</label> 
- <p>jean.dupont@example.com</p> 
+ <p>lola.poulie@example.com</p> 
  </div> 
   
  <div className="profile-group"> 

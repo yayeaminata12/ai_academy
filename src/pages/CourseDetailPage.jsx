@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, { useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom'; 
 import './CourseDetailPage.css'; 
 const CourseDetailPage = ({ courses }) => { 
@@ -16,6 +16,16 @@ const CourseDetailPage = ({ courses }) => {
  <p>Désolé, le cours que vous recherchez n'existe pas.</p>  <Link to="/courses" className="btn">Voir tous les cours</Link>  </div> 
  ); 
  } 
+
+ // Enregistrer le cours dans le stockage local pour les cours récemment consultés
+ useEffect(() => {
+    if (course) {
+      const stored = JSON.parse(localStorage.getItem("recentCourses")) || [];
+      const updated = [course.id, ...stored.filter(id => id !== course.id)].slice(0, 3);
+      localStorage.setItem("recentCourses", JSON.stringify(updated));
+    }
+  }, [course]);
+  
   
  // Fonction pour retourner à la liste des cours 
  const goBack = () => { 
@@ -27,15 +37,6 @@ const CourseDetailPage = ({ courses }) => {
     navigator.clipboard.writeText(window.location.href);
     alert("Lien du cours copié !");
   };
-
- // Mettre à jour le titre de la page
- useEffect(() => {
-    if (course) {
-      const stored = JSON.parse(localStorage.getItem("recentCourses")) || [];
-      const updated = [course.id, ...stored.filter(id => id !== course.id)].slice(0, 3);
-      localStorage.setItem("recentCourses", JSON.stringify(updated));
-    }
-  }, [course]);
 
   
  return ( 
